@@ -1,7 +1,48 @@
-import React from 'react';
+//link
+import { Link } from 'react-router-dom';
+//icon
+import { IoClose } from 'react-icons/io5';
+//component
+import Qty from '../components/Qty';
 
-const CartItem = () => {
-  return <div></div>;
+const CartItem = ({ item }) => {
+  console.log(item);
+  return (
+    <>
+      <div className="flex gap-x-8">
+        <Link to={`product/${item.id}`} className="w-[70px] h-[70px]">
+          <img
+            src={`http://localhost:1337${item.attributes.image.data[0].attributes.url}`}
+            alt=""
+          />
+        </Link>
+        <div className="flex-1">
+          {/* titre & remove icon */}
+          <div className="flex gap-x-4 mb-3">
+            <Link to={`product/${item.id}`}>{item.attributes.title}</Link>
+            <div className="cursor-pointer text-[24px] hover:text-accent transition-all">
+              <IoClose />
+            </div>
+          </div>
+          <div className="flex items-center gap-x-12">
+            {/* quantity*/}
+            <div className="flex gap-x-4 mb-2">
+              <Qty item={item} />
+              <div className="text-accent text-xl">
+                $ {item.attributes.price * item.amount}
+              </div>
+            </div>
+          </div>
+          {/* price*/}
+          <div>
+            <span className="text-accent">
+              $ {item.attributes.price} per piece
+            </span>
+          </div>
+        </div>
+      </div>
+    </>
+  );
 };
 
 export default CartItem;

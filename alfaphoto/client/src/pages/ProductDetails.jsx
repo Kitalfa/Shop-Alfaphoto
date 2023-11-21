@@ -1,3 +1,5 @@
+// useContext hook
+import { useContext } from 'react';
 // useParams hook
 import { useParams } from 'react-router-dom';
 // useFetch hook
@@ -8,10 +10,11 @@ import RelatedProducts from '../components/RelatedProducts';
 import { CartContext } from '../context/CartContext';
 
 const ProductDetails = () => {
+  const { addToCart } = useContext(CartContext);
   const { id } = useParams();
   // get product data base on the id
   const { data } = useFetch(`/products?populate=*&filters[id][$eq]=${id}`);
-  console.log(data);
+
   if (!data) {
     return <div className="container mx-auto">loading...</div>;
   }
@@ -42,7 +45,12 @@ const ProductDetails = () => {
               <div className="text-3xl text-accent font-semibold">
                 ${data[0].attributes.price}
               </div>
-              <button className="btn btn-accent ">Add to cart</button>
+              <button
+                onClick={() => addToCart(data, id)}
+                className="btn btn-accent "
+              >
+                Add to cart
+              </button>
             </div>
           </div>
         </div>

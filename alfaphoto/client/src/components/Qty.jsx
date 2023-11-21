@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Qty = () => {
-  return <div></div>;
+  return <div>QTY</div>;
 };
 
 export default Qty;
