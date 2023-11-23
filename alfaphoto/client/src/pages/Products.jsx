@@ -41,7 +41,6 @@ const Products = () => {
           </main>
         </div>
       </div>
-      Products
     </div>
   );
 };

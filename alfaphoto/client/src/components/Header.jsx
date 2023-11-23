@@ -1,6 +1,5 @@
+// hook react
 import { useContext, useState } from 'react';
-//images
-import Logo from '../img/logo.png';
 //icons
 import { SlBag } from 'react-icons/sl';
 import { FiMenu } from 'react-icons/fi';
@@ -14,7 +13,7 @@ import Cart from '../components/Cart';
 import { CartContext } from '../context/CartContext';
 
 const Header = () => {
-  const { isOpen, setIsOpen } = useContext(CartContext);
+  const { isOpen, setIsOpen, itemsAmount } = useContext(CartContext);
   const [catNavMobile, setCatNavMobile] = useState(false);
   return (
     <header className="bg-primary py-6 fixed w-full top-0 z-40 lg:relative xl:mb-[30px]">
@@ -37,7 +36,10 @@ const Header = () => {
           </div>
           {/* logo */}
           <Link to={'/'}>
-            <img src={Logo} alt="" />
+            <p className="text-4xl font-bold uppercase">
+              <span>Alfa</span>
+              <span className="text-accent">photo</span>
+            </p>
           </Link>
           {/* searchForm - show only on  desktop */}
           <div className="hidden w-full xl:flex xl:max-w-[734px]">
@@ -57,7 +59,7 @@ const Header = () => {
               <SlBag className="text-2x1" />
               {/* amout */}
               <div className="bg-accent text-primary absolute h-[18px] w-[18px] rounded-full top-3 -right-1 text-[13px] flex items-center justify-center font-bold tracking-[0.1em] ">
-                2
+                {itemsAmount}
               </div>
             </div>
             {/* cart */}

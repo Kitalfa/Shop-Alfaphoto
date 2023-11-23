@@ -55,7 +55,9 @@ const ProductDetails = () => {
           </div>
         </div>
         {/* related product */}
-        <RelatedProducts />
+        <RelatedProducts
+          categoryTitle={data[0].attributes.categories.data[0].attributes.title}
+        />
       </div>
     </div>
   );

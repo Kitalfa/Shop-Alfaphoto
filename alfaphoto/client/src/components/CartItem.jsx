@@ -1,3 +1,7 @@
+//context hook
+import { useContext } from 'react';
+//context
+import { CartContext } from '../context/CartContext';
 //link
 import { Link } from 'react-router-dom';
 //icon
@@ -6,7 +10,7 @@ import { IoClose } from 'react-icons/io5';
 import Qty from '../components/Qty';
 
 const CartItem = ({ item }) => {
-  console.log(item);
+  const { removeFromCart } = useContext(CartContext);
   return (
     <>
       <div className="flex gap-x-8">
@@ -20,7 +24,10 @@ const CartItem = ({ item }) => {
           {/* titre & remove icon */}
           <div className="flex gap-x-4 mb-3">
             <Link to={`product/${item.id}`}>{item.attributes.title}</Link>
-            <div className="cursor-pointer text-[24px] hover:text-accent transition-all">
+            <div
+              onClick={() => removeFromCart(item.id)}
+              className="cursor-pointer text-[24px] hover:text-accent transition-all"
+            >
               <IoClose />
             </div>
           </div>
@@ -28,8 +35,10 @@ const CartItem = ({ item }) => {
             {/* quantity*/}
             <div className="flex gap-x-4 mb-2">
               <Qty item={item} />
-              <div className="text-accent text-xl">
-                $ {item.attributes.price * item.amount}
+              <div>
+                <div className="text-accent text-xl">
+                  $ {item.attributes.price * item.amount}
+                </div>
               </div>
             </div>
           </div>

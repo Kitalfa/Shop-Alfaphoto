@@ -24,7 +24,8 @@ const CategorynavMobile = ({ setCatNavMobile }) => {
             <Link
               to={`products/${category.id}`}
               key={category.id}
-              className="uppercase font-medium "
+              className="uppercase font-medium"
+              onClick={() => setCatNavMobile(false)}
             >
               {category.attributes.title}
             </Link>
