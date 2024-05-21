@@ -5,8 +5,9 @@
 !/public/uploads
 
 # Ignorer les dossiers de construction de Strapi
-.build
+build
 .cache
+.strapi-updater.json
 
 # Ignorer les fichiers de configuration locaux
 .env
