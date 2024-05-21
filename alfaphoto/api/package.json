@@ -14,8 +14,6 @@
     "@strapi/plugin-users-permissions": "4.15.0",
     "@strapi/strapi": "4.15.0",
     "better-sqlite3": "8.6.0",
-    "strapi-plugin-netlify-deployments": "^2.0.2",
-    "strapi-plugin-vercel-deploy": "^1.4.0",
     "stripe": "^14.5.0"
   },
   "author": {
