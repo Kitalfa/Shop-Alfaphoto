@@ -16,7 +16,7 @@ const Product = ({ product }) => {
         <div className="w-full h-[200px] flex items-center justify-center relative">
           <img
             className="w-[160px] h-[160px] group-hover:scale-90 transition-all"
-            src={`${import.meta.env.VITE_APP_API_URL}${
+            src={`${import.meta.env.VITE_APP_API_URL_PRODUCTS}${
               product.attributes.image.data[0].attributes.url
             }`}
             alt=""
