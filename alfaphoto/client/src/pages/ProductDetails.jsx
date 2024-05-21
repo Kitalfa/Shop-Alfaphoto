@@ -25,7 +25,7 @@ const ProductDetails = () => {
         <div className="flex flex-col lg:flex-row gap-[30px] mb-[30px]">
           <div className="flex-1 lg:max-w-[40%] lg:h-[540px] grad rounded-lg flex justify-center items-center">
             <img
-              src={`${import.meta.env.VITE_APP_API_URL}${
+              src={`${import.meta.env.VITE_APP_API_URL_PRODUCTS}${
                 data[0].attributes.image.data[0].attributes.url
               }`}
               alt=""

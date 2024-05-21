@@ -16,7 +16,7 @@ const CartItem = ({ item }) => {
       <div className="flex gap-x-8">
         <Link to={`product/${item.id}`} className="w-[70px] h-[70px]">
           <img
-            src={`${import.meta.env.VITE_APP_API_URL}${
+            src={`${import.meta.env.VITE_APP_API_URL_PRODUCTS}${
               item.attributes.image.data[0].attributes.url
             }`}
             alt=""
